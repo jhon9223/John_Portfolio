@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>John NJ | Portfolio</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- ✅ STATIC CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- 🔥 NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav">
+        <div class="container">
+
+            <a class="navbar-brand brand" href="#">John NJ</a>
+
+            <div class="ms-auto nav-items">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="container main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+/* GLOBAL */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0b0f19;
+    color: #e6e6e6;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.glass-nav {
+    background: rgba(11, 15, 25, 0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px 0;
+}
+
+.brand {
+    font-weight: 700;
+    color: #fff;
+}
+
+.nav-link {
+    color: #aaa;
+    margin-left: 25px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+/* MAIN */
+.main-content {
+    margin-top: 100px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 120px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #6C63FF, #00C6FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* BUTTON */
+.btn-glow {
+    background: linear-gradient(90deg, #6C63FF, #00C6FF);
+    border: none;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-glow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(108, 99, 255, 0.6);
+}

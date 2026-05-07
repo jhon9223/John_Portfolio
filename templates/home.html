@@ -2,33 +2,129 @@
 
 {% block content %}
 
-<section class="hero">
+<!-- HERO -->
+<section class="hero text-center">
 
-    <h1>
-        Hi, I'm <span class="gradient-text">
-            {{ profile.name|default:"John NJ" }}
-        </span>
-    </h1>
+    <img src="{{ profile.profile_image.url }}" class="rounded-circle mb-4" width="150">
 
-    <h4 class="mt-3">
-        {{ profile.title|default:"Backend Developer" }}
-    </h4>
-
-    <p class="mt-3">
-        {{ profile.bio|default:"Building scalable backend systems with Django and APIs." }}
-    </p>
+    <h1>Hi, I'm <span class="gradient-text">{{ profile.name }}</span></h1>
+    <h4>{{ profile.title }}</h4>
+    <p class="mt-3">{{ profile.bio }}</p>
 
     <div class="mt-4">
-        {% if profile and profile.resume %}
         <a href="{{ profile.resume.url }}" target="_blank" class="btn btn-outline-light me-2">
             View Resume
         </a>
-
         <a href="{{ profile.resume.url }}" download class="btn btn-glow">
             Download Resume
         </a>
-        {% endif %}
     </div>
+
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section text-center mt-5">
+
+    <h2 class="mb-5">Skills</h2>
+
+    <div class="row justify-content-center">
+
+        {% for skill in skills %}
+        <div class="col-md-2 col-4 mb-4">
+
+            <div class="skill-card p-3">
+                <img src="{{ skill.icon.url }}" width="50">
+                <p class="mt-2">{{ skill.name }}</p>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects-section mt-5">
+
+    <h2 class="text-center mb-5">Projects</h2>
+
+    <div class="row">
+
+        {% for project in projects %}
+        <div class="col-md-4 mb-4">
+
+            <div class="project-card">
+
+                <img src="{{ project.image.url }}" class="img-fluid">
+
+                <div class="p-3">
+                    <h5>{{ project.title }}</h5>
+                    <p>{{ project.description|truncatewords:15 }}</p>
+
+                    <p class="small text-muted">{{ project.tech_stack }}</p>
+
+                    <a href="{% url 'project_detail' project.id %}" class="btn btn-outline-light btn-sm">
+                        View
+                    </a>
+
+                    <a href="{{ project.github_link }}" target="_blank" class="btn btn-outline-light btn-sm">
+                        GitHub
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+<section class="mt-5 text-center">
+
+    <h2 class="mb-5">Experience</h2>
+
+    {% for exp in experiences %}
+    <div class="mb-4">
+        <h5>{{ exp.role }}</h5>
+        <p>{{ exp.company }}</p>
+        <small>{{ exp.start_date }} - {{ exp.end_date|default:"Present" }}</small>
+        <p>{{ exp.description }}</p>
+    </div>
+    {% endfor %}
+
+</section>
+
+<!-- EDUCATION -->
+<section class="mt-5 text-center">
+
+    <h2 class="mb-5">Education</h2>
+
+    {% for edu in educations %}
+    <div class="mb-4">
+        <h5>{{ edu.degree }}</h5>
+        <p>{{ edu.institution }}</p>
+        <small>{{ edu.year }}</small>
+    </div>
+    {% endfor %}
+
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="mt-5 text-center">
+
+    <h2 class="mb-5">Certifications</h2>
+
+    {% for cert in certifications %}
+    <div class="mb-4">
+        <h5>{{ cert.title }}</h5>
+        <p>{{ cert.organization }}</p>
+        <p>{{ cert.description }}</p>
+    </div>
+    {% endfor %}
 
 </section>
 
